@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event listeners</title>
+	<style>
+		#box {
+
+			width: 500px;
+			height: 500px;
+			background-color: grey;
+		}
+
+		h1 {
+			color: white;
+		}
+
+		h2 {
+			color: white;
+		}
+	</style>
+</head>
+<body>
+
+	<h1 id="heading">Event Listeners</h1>
+
+	<h2 id="head">This file has event Listeners</h2>
+
+	<div id="box"></div>
+	
+	<script>
+		This is the start of iiffe
+		(function(){
+			//The var is at the top - out of the function so the eventlistener can grab this
+			var changeColor = document.getElementById("box");
+			var changebackground = document.getElementsByTagName("body");
+
+			//This is my first event, where I have set what i want to happen
+			function firstEvent() {
+				//this is the list of events that will happen once you hover on the div
+				changeColor.style.backgroundColor = "green";
+				changeColor.style.transition = "5000ms";
+				changeColor.style.width = "1000px";
+				changeColor.style.height = "1000px";
+				changebackground[0].style.backgroundColor = "black";
+				changebackground[0].style.transition = "5000ms";
+
+
+
+				console.dir(changeColor);	
+			}
+				//This is my second event
+				function secondEvent() {
+				
+				changeColor.style.backgroundColor = "pink";
+				changeColor.style.width = "500px";
+				changeColor.style.height = "500px";
+				
+			}
+			//This is me invoking/actioning what i want to happen. What is triggered in the dom, the event will happen
+			function init(){ //This a a init function which wraps the event listeners, you dont need to have for it work, nice to have to wrap, like a div
+			var changeColor = document.getElementById("box");	
+			changeColor.addEventListener("mouseover", firstEvent, false);
+			changeColor.addEventListener("mouseout", secondEvent, false);
+			}
+
+			init();//This is part function init--it invokes it, you must have this to have it to work if you put a init function
+
+		}());
+
+		
+		var grab = document.getElementById("box");
+		grab.addEventListener('click', myfunction, false);
+
+		function myfunction(event) {
+		console.log(event);
+		
+		}
+	
+
+
+	</script>
+</body>
+</html>

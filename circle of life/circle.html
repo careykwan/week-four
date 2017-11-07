@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Circle exercise</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<style>
+		#circle {
+		      width: 500px;
+		      height: 500px;
+		      -webkit-border-radius: 250px;
+		      -moz-border-radius: 250px;
+		      border-radius: 250px;
+		      background: linear-gradient(to bottom, #f1c40f 0%, #d35400 100%);
+		      margin: 0 auto;
+		      margin-top: 120px;
+		     
+		      
+
+    	}
+
+    	/*#circle:hover {
+   			transform:rotateY(0deg) rotateZ(740deg);
+   			transition-duration: 4s;
+		}*/
+		
+		h1 {
+			text-align: center;
+			color: #2980b9;
+		}
+
+		button {
+			/*margin-left: 100px;*/
+			margin: 0 auto;
+			padding-right: 50px;
+			margin-right: 20px;
+			margin-top: 100px;
+		}
+
+		#one {
+			margin-left: 150px;
+		}
+
+		#mouse {
+			height: 80px;
+		}
+
+	
+
+		.boxes {
+			margin: 0 auto;
+			width: 600px;
+		}
+
+	</style>
+</head>
+
+<body>
+<!-- Psuedo code
+1. make circle
+2. When mouse hovers over circle, the circle spins
+3. make 5 buttons
+4. number the 5 buttons from 1 - 5
+5. Assign each button with spins
+6. when you press a button, you tell it how many spins you would like
+7. when you hover the circle spins the amount of times.   -->
+
+	<h1>The circle of life</h1>
+	<div id="circle">
+		
+		<img id="mouse" src="Mouse.png" alt="mouse">
+	</div>
+	<div class="anotherBox">
+		<div class="boxes">
+		 	<button id="one" type="button" class="btn btn-primary btn-lg">1</button>
+		  	<button id="two" type="button" class="btn btn-primary btn-lg">2</button>
+		   	<button id="three" type="button" class="btn btn-primary btn-lg">3</button>
+		    <button id="four" type="button" class="btn btn-primary btn-lg">4</button>
+		    <button id="five" type="button" class="btn btn-primary btn-lg">5</button>
+		 </div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script>
+		(function(){
+			var spinWheel = document.getElementById('circle');
+			var buttonOne = document.getElementById('one');
+			var buttonTwo = document.getElementById('two');
+			var buttonThree = document.getElementById('three');
+			var buttonFour = document.getElementById('four');
+			var buttonFive = document.getElementById('five');
+			console.dir(spinWheel);
+
+		
+
+		function scrollOne () {
+			circle.addEventListener("mousewheel", spinOnce, false);
+		}	
+
+		function spinOnce() {
+			spinWheel.style.transform = "rotateZ(360deg)";
+			spinWheel.style.transitionDuration = "5s";
+			setTimeout(function() {
+				window.location.reload();
+			},5000);
+		}
+
+		function scrollTwo() {
+			circle.addEventListener("mousewheel", spinTwice, false);
+		}
+		function spinTwice() {
+			spinWheel.style.transform = "rotateZ(720deg)";
+			spinWheel.style.transitionDuration = "5s";
+			setTimeout(function() {
+				window.location.reload();
+			},5000);
+		}
+
+		function scrollThree () {
+			circle.addEventListener("mousewheel", spinThrice, false);
+		}
+		function spinThrice() {
+			spinWheel.style.transform = "rotateZ(1080deg)";
+			spinWheel.style.transitionDuration = "5s";
+			setTimeout(function() {
+				window.location.reload();
+			},5000);
+		}
+
+		function scrollFour() {
+			circle.addEventListener("mousewheel", spinFouth, false);
+		}
+		function spinFouth() {
+			spinWheel.style.transform = "rotateZ(1440deg)";
+			spinWheel.style.transitionDuration = "5s";
+			setTimeout(function() {
+				window.location.reload();
+			},5000);
+		}
+
+		function scrollFive() {
+			circle.addEventListener("mousewheel", spinFifth, false);
+		}
+		function spinFifth() {
+			spinWheel.style.transform = "rotateZ(1800deg)";
+			spinWheel.style.transitionDuration = "5s";
+			setTimeout(function() {
+				window.location.reload();
+			},5000);
+		}
+
+
+		buttonOne.addEventListener("click", scrollOne, false);
+		buttonTwo.addEventListener("click", scrollTwo, false);
+		buttonThree.addEventListener("click", scrollThree, false);
+		buttonFour.addEventListener("click", scrollFour, false);
+		buttonFive.addEventListener("click", scrollFive, false);
+
+		}());
+
+
+		
+
+	</script>
+	
+</body>
+</html>

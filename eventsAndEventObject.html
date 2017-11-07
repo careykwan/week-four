@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Event listeners and event objects</title>
+	<style>
+		#box {
+
+			width: 500px;
+			height: 500px;
+			background-color: grey;
+		}
+
+		h1 {
+			color: #2c3e50;
+		}
+
+		
+		
+	</style>
+</head>
+<body>
+
+	<h1 id="heading">Events and event object final Checkpoint:</h1>
+
+	<h2 id="input">'click me'</h2>
+
+	<p class="instruct">1 Create a listener that listens for a click event on a link <br>
+2 The function will prevent the link's default behaviour<br>
+3 The function will then add the links href content to a paragraph in the html - (please access the href content via the EVENT object)<br>
+4 After the html updates use a timer to manually finish the link process after 3 seconds, i.e. the browser will re-direct to the link's href address</p>
+
+	
+	
+	<script>
+		//this is my iffe
+		(function(){
+			//This is me grabbing the element in the DOM
+			var enterWeb = document.getElementById("input");
+
+			//This is my function and me telling it what to do 1.show wwww.google.com 2.if it is shown (true) then the timer will start and open a 
+			//window to the google page
+			function myfunction(event) {
+				this.innerHTML = "www.google.com";
+
+				if (true) {
+					setTimeout(function () { window.open("https://www.google.com");}, 1000);
+				}
+		}
+		//This event listener, it is listening for the function to fire off
+		enterWeb.addEventListener('click', myfunction, false);
+		//This is the closing tags of the iffe
+		}());
+
+	
+
+
+	</script>
+</body>
+</html>

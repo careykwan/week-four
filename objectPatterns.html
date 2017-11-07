@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+	(function(){
+		// Setup my config/cloud object. This can be accessed to set values
+		// and update values from within our following code/functions.
+		//Setup my config object
+		var config = {
+			initialProperty: "initial property value"
+		};
+
+		
+		// 	alert(msg);
+		// }
+		// 1. This function makes the message via the argument
+		// pre invocation 
+		function makeMessage(myMessage){
+			console.log(config);
+			config.msg = myMessage;
+
+			// Here we invoke shoutSomething within our own
+			// makeMessage function, this means that the code above
+			// i.e. config.msg = myMessage; is run first.
+			// When we call functions from within functions, we get 
+			// a chance to control the ORDER of code/occurence within our
+			// js file/environment
+			shoutSomething();
+
+		}
+
+		// 2. Function shoutSomething alerts the value of the 
+		// msg property 'config.msg' within the
+		// config object
+		function shoutSomething(){
+			console.log('a');
+			alert(config.msg);
+		// Here we have another example of calling a function
+			// from within a function, that allows us to have more
+			// control re: order and process of events. 
+			updateObjectValue();
+		}
+
+		// 3. update object value and log it
+		function updateObjectValue(){
+			config.msg = 'haha changed and updated!';
+			console.log(config.msg);
+		}
+		
+		// Light the wick and invoke the first function
+		makeMessage('Hello Lewis');
+
+		// This console occurs last
+		console.log(config);
+
+	})();
+
+
+</script>
+	
+</body>
+</html>
